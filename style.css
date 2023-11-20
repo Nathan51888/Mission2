@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+
+button {
+  padding: 1em;
+}
+
+h2 {
+  text-align: center;
+}
