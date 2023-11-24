@@ -69,7 +69,7 @@ function calculate() {
 }
 
 function backspace() {
-  if (!currentNumber) {
+  if (!currentNumber && currentEquation.length > 1) {
     currentEquation.pop();
     currentNumber = currentEquation[currentEquation.length - 1];
     textField.textContent = ":" + currentEquation.join("");
