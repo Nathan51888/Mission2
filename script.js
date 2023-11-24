@@ -1,47 +1,67 @@
 const textField = document.querySelector("#text-field");
+
+const currentEquation = [];
 let currentNumber = "";
-const numbersArray = [];
-const operationsArray = [];
 let finalResult = 0;
 
-function minus() {
-  operationsArray.push("-");
-  numbersArray.push(currentNumber);
-  currentNumber = "";
+function number(number) {
+  currentNumber += number.toString();
+  textField.textContent += number;
 }
 
 function add() {
-  operationsArray.push("+");
-  numbersArray.push(currentNumber);
-  currentNumber = "";
-}
-
-// 1 + 2 + 3
-
-function calculate() {
-  numbersArray.push(currentNumber);
-  finalResult = parseInt(numbersArray[0]);
-  let i = 1;
-  for (const operation of operationsArray) {
-    switch (operation) {
+  if (!currentNumber) {
+    switch (currentEquation[currentEquation.length - 1]) {
       case "+":
-        finalResult += parseInt(numbersArray[i]);
-        i++;
-        break;
+        console.log("error");
 
+        return;
       case "-":
-        finalResult -= parseInt(numbersArray[i]);
-        i++;
-        break;
-
-      default:
+        currentEquation[currentEquation.length - 1] = "+";
         break;
     }
   }
-  console.log(finalResult);
+  currentEquation.push(currentNumber);
+  currentEquation.push("+");
+  currentNumber = "";
+  textField.textContent += "+";
 }
 
-// Numpad //
-function number(number) {
-  currentNumber += number.toString();
+function minus() {
+  if (!currentNumber) {
+    switch (currentEquation[currentEquation.length - 1]) {
+      case "-":
+        return;
+      case "+":
+        currentEquation[currentEquation.length - 1] = "-";
+        break;
+    }
+  }
+  currentEquation.push(currentNumber);
+  currentEquation.push("-");
+  currentNumber = "";
+  textField.textContent += "-";
+}
+
+function calculate() {
+  currentEquation.push(currentNumber);
+
+  finalResult = parseInt(currentEquation[0]);
+  console.log("Before calculation " + currentEquation);
+
+  currentEquation.forEach((item, index) => {
+    switch (item) {
+      case "+":
+        if (!currentEquation[index + 1]) return;
+        finalResult += parseInt(currentEquation[index + 1]);
+        break;
+
+      case "-":
+        if (!currentEquation[index + 1]) return;
+        finalResult -= parseInt(currentEquation[index + 1]);
+        break;
+    }
+  });
+  console.log("Final result: " + finalResult);
+  return;
 }
