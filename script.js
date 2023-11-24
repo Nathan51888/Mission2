@@ -1,4 +1,5 @@
 const textField = document.querySelector("#text-field");
+const textFieldResult = document.getElementById("text-field-result");
 
 const currentEquation = [];
 let currentNumber = "";
@@ -65,7 +66,11 @@ function calculate() {
     }
   });
   console.log("Final result: " + finalResult);
-  textField.textContent = `=${finalResult}`;
+  textFieldResult.textContent = `${currentEquation.join(" ")} = ${finalResult}`;
+  textField.textContent = ": ";
+  finalResult = 0;
+  currentNumber = "";
+  currentEquation.splice(0, currentEquation.length);
 }
 
 function backspace() {

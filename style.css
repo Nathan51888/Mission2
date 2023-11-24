@@ -1,22 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  color: white;
+  background-color: rgb(36, 36, 36);
+  margin: 15em auto;
+  width: fit-content;
 }
 
 .numpad {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  width: 50%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "7 8 9 backspace"
+    "4 5 6 plus"
+    "1 2 3 minus"
+    ". zero . equals";
+  gap: 0.4em;
+  width: fit-content;
   height: 50%;
   margin: auto;
 }
 
 button {
+  font-size: 1.1rem;
+  color: white;
+  background-color: rgb(58, 58, 58);
+  border: none;
+  border-radius: 9px;
   padding: 1em;
+  width: 8em;
 }
 
-h2 {
+.text-field-box {
+  padding: 0.8em;
+  margin: 1em auto;
+  border: 1px solid rgb(68, 68, 68);
+  border-radius: 5px;
+}
+
+#text-field-result {
+  color: gray;
   text-align: center;
+  width: fit-content;
+  margin-left: auto;
+}
+
+#text-field {
+  font-size: 2rem;
+  text-align: center;
+  width: fit-content;
+  margin-left: auto;
+}
+
+#zero {
+  grid-area: zero;
+}
+
+.operators {
+  background-color: rgb(110, 110, 110);
+}
+
+#backspace {
+  grid-area: backspace;
+}
+
+#plus {
+  grid-area: plus;
+}
+
+#minus {
+  grid-area: minus;
+}
+
+#equals {
+  grid-area: equals;
+  color: black;
+  background-color: rgb(130, 178, 240);
 }

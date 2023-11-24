@@ -8,22 +8,25 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h2 id="text-field">:</h2>
+    <div class="text-field-box">
+      <h4 id="text-field-result"></h3>
+      <h2 id="text-field">:</h2>
+    </div>
     <div class="numpad">
-      <button onclick="number(1)">1</button>
-      <button onclick="number(2)">2</button>
-      <button onclick="number(3)">3</button>
-      <button onclick="number(4)">4</button>
-      <button onclick="number(5)">5</button>
-      <button onclick="number(6)">6</button>
       <button onclick="number(7)">7</button>
       <button onclick="number(8)">8</button>
       <button onclick="number(9)">9</button>
-      <button onclick="number(0)">0</button>
-      <button onclick="add()">+</button>
-      <button onclick="minus()">-</button>
-      <button onclick="calculate()">=</button>
-      <button onclick="backspace()">⬅</button>
+      <button onclick="number(4)">4</button>
+      <button onclick="number(5)">5</button>
+      <button onclick="number(6)">6</button>
+      <button onclick="number(1)">1</button>
+      <button onclick="number(2)">2</button>
+      <button onclick="number(3)">3</button>
+      <button onclick="number(0)" id="zero">0</button>
+      <button onclick="add()" class="operators" id="plus">+</button>
+      <button onclick="minus()" class="operators" id="minus">-</button>
+      <button onclick="calculate()" class="operators" id="equals">=</button>
+      <button onclick="backspace()" class="operators" id="backspace">⬅</button>
     </div>
   </body>
 </html>
