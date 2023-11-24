@@ -49,7 +49,7 @@ function calculate() {
   currentEquation.push(currentNumber);
 
   finalResult = parseInt(currentEquation[0]);
-  console.log("Before calculation " + currentEquation);
+  console.log(currentEquation);
 
   currentEquation.forEach((item, index) => {
     switch (item) {
@@ -66,4 +66,22 @@ function calculate() {
   });
   console.log("Final result: " + finalResult);
   textField.textContent = `=${finalResult}`;
+}
+
+function backspace() {
+  if (!currentNumber) {
+    currentEquation.pop();
+    currentNumber = currentEquation[currentEquation.length - 1];
+    textField.textContent = ":" + currentEquation.join("");
+    currentEquation.pop();
+    console.log("deleted an operator");
+    console.log(currentEquation);
+    return;
+  }
+
+  currentNumber = currentNumber.slice(0, -1);
+  textField.textContent = ":" + currentEquation.join("") + currentNumber;
+
+  console.log("deleted a number");
+  console.log(currentEquation);
 }
