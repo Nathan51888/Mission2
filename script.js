@@ -18,7 +18,8 @@ function add() {
         return;
       case "-":
         currentEquation[currentEquation.length - 1] = "+";
-        break;
+        textField.textContent = ":" + currentEquation.join("");
+        return;
     }
   }
   currentEquation.push(currentNumber);
@@ -34,7 +35,8 @@ function minus() {
         return;
       case "+":
         currentEquation[currentEquation.length - 1] = "-";
-        break;
+        textField.textContent = ":" + currentEquation.join("");
+        return;
     }
   }
   currentEquation.push(currentNumber);
@@ -63,5 +65,5 @@ function calculate() {
     }
   });
   console.log("Final result: " + finalResult);
-  return;
+  textField.textContent = `=${finalResult}`;
 }
