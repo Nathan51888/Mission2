@@ -13,8 +13,7 @@ function add() {
   if (!currentNumber) {
     switch (currentEquation[currentEquation.length - 1]) {
       case "+":
-        console.log("error");
-
+        console.log("repeated operator");
         return;
       case "-":
         currentEquation[currentEquation.length - 1] = "+";
@@ -32,6 +31,7 @@ function minus() {
   if (!currentNumber) {
     switch (currentEquation[currentEquation.length - 1]) {
       case "-":
+        console.log("repeated operator");
         return;
       case "+":
         currentEquation[currentEquation.length - 1] = "-";
